@@ -1,3 +1,5 @@
+import { setUserToken } from "../stores/UserStore/UserStore";
+
 export async function getBookList(){
     try{
         const response = await fetch('https://fsa-book-buddy-b6e748d1380d.herokuapp.com/api/books')
@@ -16,6 +18,9 @@ export async function registerUser(user){
             },
             body: JSON.stringify(user)
         })
+        const { token } = await response.json()
+        setUserToken(token); 
+        return token;
     } catch(err){
         console.log(err);
     }

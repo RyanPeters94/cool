@@ -1,24 +1,26 @@
-import { test, it, expect } from 'vitest';
+import { test, it, expect, describe } from 'vitest';
 import {$userStore, setFirstName, setLastName, setEmail, setPassword } from "./UserStore.js";
-
-test(() =>{
-    it(() =>{
-        expect(setFirstName('ryan')).toBe($userStore.get().firstName)
-    })
+describe('setFirstNameTest', () =>{
+        it(() =>{
+            expect(setFirstName('ryan')).toBe($userStore.get().firstname)
+        })
 })
 
-test(() =>{
-    it(() =>{
-        expect(setLastName('peters')).toBe($userStore.get().lastName)
-    })
+describe('setLastNameTest', () =>{
+        it(() =>{
+            expect(setLastName('peters')).toBe($userStore.get().lastname)
+        })
 })
-test(() =>{
-    it(() =>{
-        expect(setEmail('peters@yahoo.com')).toBe($userStore.get().email)
-    })
+
+describe('setEmailTest', () => {
+        it(() =>{
+            expect(setEmail('peters@yahoo.com')).toBe($userStore.get().email)
+        })
 })
-test(() =>{
-    it(() =>{
-        expect(setPassword('peters12345')).toBe($userStore.get().password)
-    })
+
+describe('setPasswordTest', () =>{
+        it(() =>{
+            expect(setPassword('peters12345')).toBe($userStore.get().password)
+        })
 })
+
